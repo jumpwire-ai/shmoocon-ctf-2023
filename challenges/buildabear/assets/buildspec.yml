@@ -1,0 +1,6 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "This is a really really really simple buildspec file"

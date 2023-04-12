@@ -1,0 +1,36 @@
+name: "penguin"
+category: cryptography
+description: |
+  A localization server at penguin.ctf.jumpwire.ai will encrypt and return the flag on request. The developers wanted to make sure it was future-proof for any l10n needs, so it accepts input for how to describe the data being returned - not all languages would call it a flag, after all.
+
+  Connect to the server with either TLS or plain TCP:
+
+  ```
+  socat - OPENSSL:penguin.ctf.jumpwire.ai:31337
+  socat - TCP:penguin.ctf.jumpwire.ai:1337
+  ```
+value: 400
+type: standard
+
+image: null
+host: null
+flags:
+  - flag{33ceb10be4b910321542f14055c3db7c}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+topics: []
+
+# Provide paths to files from the same directory that this file is in
+# files:
+#   - dist/source.py
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+requirements:
+  - crypto 1
+  - crypto 2
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

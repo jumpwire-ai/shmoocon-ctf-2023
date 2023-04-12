@@ -1,0 +1,34 @@
+name: "not gonna cry"
+category: forensics
+description: |
+  We've been hit with ransomware! Luckily we use immutable infra so we can burn everything down instead of paying out.
+
+  Our admin grabbed a packet capture from the infected network before redeploying - maybe there's something interesting in it.
+value: 500
+type: standard
+
+image: null
+host: null
+flags:
+  - flag{fc5234e1c0401ccfd9a0b17aa553ac0f}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+topics:
+  - tcp
+  - ethereum
+  - wireshark
+
+# Provide paths to files from the same directory that this file is in
+files:
+  - captures/ransomware.pcap
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+requirements:
+  - GiT GuD
+  - image 4 sail
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

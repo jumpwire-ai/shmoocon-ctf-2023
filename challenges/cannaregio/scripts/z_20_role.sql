@@ -1,0 +1,20 @@
+\c ctf
+
+SELECT anon.start_dynamic_masking();
+
+CREATE ROLE ctf WITH LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION PASSWORD 'ctf';
+
+GRANT pg_read_all_data TO ctf;
+
+-- <!-- GRANT CONNECT ON DATABASE storefront TO ctf; -->
+-- <!-- GRANT USAGE ON SCHEMA public TO ctf; -->
+
+-- <!-- GRANT SELECT ON ALL TABLES IN SCHEMA public TO ctf; -->
+-- <!-- GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO ctf; -->
+-- <!-- REVOKE CREATE ON SCHEMA public FROM PUBLIC; -->
+
+SECURITY LABEL FOR anon ON ROLE ctf IS 'MASKED';
+
+SECURITY LABEL FOR anon
+  ON COLUMN users.email
+  IS 'MASKED WITH VALUE ''CONFIDENTIAL'' ';

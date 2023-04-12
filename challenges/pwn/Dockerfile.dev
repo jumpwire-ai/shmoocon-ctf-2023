@@ -1,0 +1,10 @@
+FROM php:7.2-apache
+
+RUN apt-get update && apt-get install -y cowsay
+
+RUN ln -s /etc/apache2/mods-available/cgi.load /etc/apache2/mods-enabled/cgi.load
+RUN ln -s /etc/apache2/mods-available/actions.load /etc/apache2/mods-enabled/actions.load
+RUN ln -s /usr/games/cowsay /usr/local/bin/cowsay
+
+COPY flags /flags
+COPY app /var/www/html

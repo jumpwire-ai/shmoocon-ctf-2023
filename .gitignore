@@ -1,0 +1,7 @@
+.terraform.lock.hcl
+*.tfout
+**/.terraform/
+**/terraform.tfstate.backup
+
+/.ctf/
+.venv

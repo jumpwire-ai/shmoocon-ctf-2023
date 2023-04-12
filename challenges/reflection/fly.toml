@@ -1,0 +1,45 @@
+# fly.toml file generated for ctf-self-reflection on 2023-01-04T18:11:29-05:00
+
+app = "ctf-self-reflection"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+  DATABASE_PASSWORD = "changeme"
+  PHX_HOST = "self-reflection.ctf.jumpwire.ai"
+  PORT = "8080"
+  SECRET_KEY_BASE = "iWfH2yORtHYMq1U4Rh6BbupacT4EQgZyhiLFk1TJZZxNNdkXd1k0yKRKobSieW3Z"
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[[services]]
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.http_checks]]
+    grace_period = "5s"
+    interval = "15s"
+    method = "get"
+    path = "/ping"
+    protocol = "http"
+    restart_limit = 0
+    timeout = "2s"
+    tls_skip_verify = false
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443

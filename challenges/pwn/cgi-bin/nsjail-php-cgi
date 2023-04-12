@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Match the flag to the PHP path index,
+# eg calling /ping.php will mount /flags/ping to /flag
+uri="${REQUEST_URI%%.*}"
+chal="${uri##*/}"
+
+EXTRA_MOUNTS=""
+
+FLAG="/flags/${chal}"
+if [ -f "${FLAG}" ]; then
+    EXTRA_MOUNTS+=" -R ${FLAG}:/flag"
+fi
+
+DB_FILE="/dbs/${chal}.sqlite"
+if [ -f "${DB_FILE}" ]; then
+    EXTRA_MOUNTS+=" -R ${DB_FILE}:/db.sqlite"
+fi
+
+/usr/bin/nsjail \
+    --config /home/user/cgi-bin.nsjail.cfg \
+    ${EXTRA_MOUNTS} \
+    -- /usr/lib/cgi-bin/php $@

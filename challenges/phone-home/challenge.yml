@@ -1,0 +1,30 @@
+name: "phone home"
+category: networking
+description: |
+  We received a cellphone that was part of Mugjournal's skunkworks lab. Apparently it used to be on a secret network before it was smuggled out - find out what that network is!
+
+  Hint: The target phone has a MAC address of 8c:45:00:70:33:7a and is powered on at our booth. No physical access is allowed, but getting close should be enough.
+value: 100
+type: standard
+
+image: null
+host: null
+flags:
+  - flag{e7e63a60debfcf5f}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+topics:
+  - wifi
+
+# Provide paths to files from the same directory that this file is in
+# files:
+#   - dist/source.py
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+requirements: []
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

@@ -1,0 +1,28 @@
+name: "wpa"
+category: networking
+description: |
+  You found the skunkworks network, nice. Looks like that device is still connected to an AP - you should connect to it too.
+value: 200
+type: standard
+
+image: null
+host: null
+flags:
+  - flag{4c9e700876d61d8981f2d87e0b21e88a}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+topics: []
+
+# Provide paths to files from the same directory that this file is in
+# files:
+#   - dist/source.py
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+requirements:
+  - phone home
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

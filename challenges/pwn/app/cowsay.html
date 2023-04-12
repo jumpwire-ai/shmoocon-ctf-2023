@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="/loader.js" ></script>
+
+    <title>Cowsay</title>
+  </head>
+  <body>
+    <p>Enter some text you want a cow to say:</>
+    <form action="/cowsay.php" id="form">
+      <input type="text" name="text" size="30" placeholder="Text to say" />
+      <button type="submit">
+        Submit
+      </button>
+    </form>
+
+    <div id="form-response"></div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "type": "array",
+  "length": {
+    "type": "number",
+    "constant": 1
+  },
+  "content": {
+    "type": "object",
+    "id": {
+      "type": "number",
+      "subtype": "i32",
+      "id": {}
+    },
+    "name": {
+      "type": "string",
+      "faker": {
+        "generator": "name"
+      }
+    },
+    "company": {
+      "type": "string",
+      "faker": {
+        "generator": "company_name"
+      }
+    },
+    "email": {
+      "type": "string",
+      "faker": {
+        "generator": "safe_email"
+      }
+    }
+  }
+}

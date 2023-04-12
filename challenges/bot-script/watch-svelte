@@ -1,0 +1,7 @@
+#!/bin/bash
+
+inotifywait -q -m -r -e modify,create,delete --exclude "\.js|\.css|\.woff*|package-lock.json" ./svelte | while read DIRECTORY EVENT FILE; do
+    if [[ $FILE == *.svelte ]]; then
+        make build
+    fi
+done

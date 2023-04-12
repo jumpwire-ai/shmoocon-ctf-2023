@@ -1,0 +1,91 @@
+<nav>
+  <div class="mx-auto w-full mb-4">
+    <div class="flex h-16 justify-between">
+      <div class="flex">
+        <div class="flex flex-shrink-0 items-center">
+          <img class="h-12 w-auto" phx-track-static src={Routes.static_path(@conn, "/images/fusion.webp")} alt="Self Reflection" />
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <a href="/logout" class="relative inline-flex items-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-gray-800">
+            <span>Logout</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="overflow-hidden bg-white shadow sm:rounded-lg">
+  <div class="px-4 py-5 sm:px-6">
+    <div class="flex justify-between">
+      <span class="text-lg font-medium leading-6 text-gray-900">User Profile</span>
+
+      <button type="button" id="btn" class="inline-flex items-center text-red-600 hover:font-bold" data-user-id={@user.id} onclick="loadUser(this)">
+        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path fill="currentColor" d="M15.65 4.35A8 8 0 1 0 17.4 13h-2.22a6 6 0 1 1-1-7.22L11 9h7V2z"/></svg>
+        Reload
+      </button>
+    </div>
+  </div>
+  <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+    <dl class="sm:divide-y sm:divide-gray-200">
+      <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Full name</dt>
+        <dd id="name" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+          <%= @user.first_name %> <%= @user.last_name %>
+        </dd>
+      </div>
+      <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Title</dt>
+        <dd id="title" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">CTF Participant</dd>
+      </div>
+      <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Email address</dt>
+        <dd id="email" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+          <%= @user.email %>
+        </dd>
+      </div>
+      <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Referred by</dt>
+        <dd id="referrer" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+          <a href="https://ctf.jumpwire.ai" class="font-medium text-orange-600 hover:text-red-600">
+            ctf.jumpwire.ai
+          </a>
+        </dd>
+      </div>
+      <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Password</dt>
+        <dd id="password" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+          <p class="uppercase font-light">
+            redacted
+          </p>
+        </dd>
+      </div>
+      <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">API Token</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+          <%= if is_nil(@token) do %>
+            <p class="mb-4">
+              For security reasons, any existing tokens cannot be listed.
+            </p>
+            <%= button "Generate new token",
+              to: Routes.page_path(@conn, :show_user, @user.id, token: true),
+              method: :put,
+              class: "border border-orange-600 rounded-md drop-shadow px-3 py-2 text-orange-600 hover:text-white hover:bg-red-600"
+            %>
+          <% else %>
+            <span class="break-all">
+              <%= @token %>
+            </span>
+          <% end %>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+<script type="text/javascript">
+ window.api_url = '<%= Application.get_env(:reflection, :graphql)[:url] %>'
+</script>

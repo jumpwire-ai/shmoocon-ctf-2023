@@ -1,0 +1,29 @@
+name: "cowsay"
+category: misc
+description: |
+  The cow knows where the flag is, make her tell you!
+
+  https://pwn.ctf.jumpwire.ai/cowsay.html
+value: 100
+type: standard
+
+image: null
+host: null
+flags:
+  - flag{2d56beb3cc71abc74e41e69ef866d2cc}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+topics: []
+
+# Provide paths to files from the same directory that this file is in
+# files:
+#   - dist/source.py
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+requirements: []
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

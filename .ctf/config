@@ -1,0 +1,25 @@
+[config]
+url = changeme
+access_token = changeme
+
+[challenges]
+challenges/encoding = crypto 2
+challenges/substitution/ = crypto 1
+challenges/jwt/ = jwt
+challenges/blog/ = blog
+challenges/wiki/ = wiki
+challenges/penguin/ = penguin
+challenges/phone-home/ = phone home
+challenges/wpa/ = wpa
+challenges/captured/ = captured
+challenges/git-gud/ = GiT GuD
+challenges/image-4-sail/ = image 4 sail
+challenges/reflection/ = self reflection
+challenges/not-gonna-cry/ = not gonna cry
+challenges/green-thumb/ = green thumb
+challenges/pwn/challenges/cowsay.yml = cowsay
+challenges/pwn/challenges/song-search.yml = song search
+challenges/bot-script/ = bot script
+challenges/cloud-proxy/ = cloud proxy
+challenges/buildabear/ = buildabear
+challenges/cannaregio/ = cannaregio

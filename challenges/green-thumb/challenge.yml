@@ -1,0 +1,39 @@
+name: "green thumb"
+category: cryptography
+description: |
+  We have an app for generating and validating TOTP codes. To make sure it's secure, our best and brightest wrote a custom TOTP secret generator. Somebody said "rolling your own crypto is bad" but the algorithm we picked has excellent (sub-ns) speed, a state (256 bits) that is large enough for any parallel application, and it passes all tests we are aware of. The developer even seed the PRNG with the current time for maximum entropy! Good luck rooting this, it's probably impossible.
+
+  To reduce our bus factor, we decided to share the flag with the first registered user.
+
+  Connect to the server with either TLS or plain TCP:
+
+  ```
+  socat - OPENSSL:green-thumb.ctf.jumpwire.ai:31337
+  socat - TCP:green-thumb.ctf.jumpwire.ai:1337
+  ```
+value: 500
+type: standard
+
+image: null
+host: null
+flags:
+  - flag{ac001cdc88bd954b8b356de20abc058a}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+topics:
+  - rng
+  - otp
+
+# Provide paths to files from the same directory that this file is in
+# files:
+#   - dist/source.py
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+requirements:
+  - penguin
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

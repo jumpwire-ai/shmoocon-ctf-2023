@@ -1,0 +1,28 @@
+name: "captured"
+category: networking
+description: |
+  A login is required for the skunkworks network? There must be something interesting on it. Figure out how to authenticate to the network and see what's there.
+value: 300
+type: standard
+
+image: null
+host: null
+flags:
+  - flag{a89ad4cff3a8f4cc79f7524bfdd027db}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+topics: []
+
+# Provide paths to files from the same directory that this file is in
+# files:
+#   - dist/source.py
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+requirements:
+  - wpa
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

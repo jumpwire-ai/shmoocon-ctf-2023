@@ -1,0 +1,48 @@
+<div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <img class="mx-auto h-24 w-auto" phx-track-static src={Routes.static_path(@conn, "/images/fusion.webp")} alt="Self Reflection">
+    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Register for a new account</h2>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <%= form_for @changeset, Routes.page_path(@conn, :register), [class: "space-y-6"], fn f -> %>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+          <div class="mt-1">
+            <%= email_input f, :email, required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-red-600 focus:outline-none focus:ring-red-600 sm:text-sm" %>
+          </div>
+          <%= error_tag f, :email %>
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <div class="mt-1">
+            <%= password_input f, :password, required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-red-600 focus:outline-none focus:ring-red-600 sm:text-sm" %>
+          </div>
+          <%= error_tag f, :password %>
+        </div>
+
+        <div>
+          <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+          <div class="mt-1">
+            <%= text_input f, :first_name, required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-red-600 focus:outline-none focus:ring-red-600 sm:text-sm" %>
+          </div>
+          <%= error_tag f, :first_name %>
+        </div>
+
+        <div>
+          <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
+          <div class="mt-1">
+            <%= text_input f, :last_name, required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-red-600 focus:outline-none focus:ring-red-600 sm:text-sm" %>
+          </div>
+          <%= error_tag f, :last_name %>
+        </div>
+
+        <div>
+          <%= submit "Sign in", class: "flex w-full justify-center rounded-md border border-transparent bg-orange-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

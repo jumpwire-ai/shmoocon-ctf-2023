@@ -1,0 +1,41 @@
+# fly.toml file generated for ctf-bot-script on 2023-01-19T11:35:36-05:00
+
+app = "ctf-bot-script"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+  HOST = "https://bot-script.ctf.jumpwire.ai"
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[[services]]
+  internal_port = 3000
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 65
+    soft_limit = 50
+    type = "connections"
+
+  [[services.http_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    method = "get"
+    path = "/ping"
+    protocol = "http"
+    restart_limit = 10
+    timeout = "2s"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443

@@ -1,0 +1,32 @@
+name: "bot script"
+category: web
+description: |
+  The European Data Protection Board has created a chat room for individuals to ask questions directly to representatives of the EU national data protection authorities (national Supervisory Authorities). If all representatives are busy, an automated bot will provide responses from a pre-generated list of answers. The EDPB aims to best serve all constituents of the EU.
+
+  You can access the chatbot at https://bot-script.ctf.jumpwire.ai
+value: 200
+type: standard
+
+# Settings used for Dockerfile deployment
+# If not used, remove or set to null
+image: null
+# Specify a host to deploy the challenge onto.
+host: null
+
+# Flags specify answers that your challenge use. You should generally provide at least one.
+flags:
+  - flag{notsosecret59}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+topics:
+  - xss
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+requirements:
+ - "blog"
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"
