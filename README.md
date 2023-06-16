@@ -2,6 +2,8 @@
 
 This is the setup and code for the challenges from JumpWire's Shmoocon 2023 CTF.
 
+If you'd like to read details about the event, it's detailed [here](https://jumpwire.io/blog/how-to-run-a-ctf)
+
 ## Structure
 
 All of the challenges live in `challenges`. At a minimum, each has its own README and a `challenge.yml` file that provides metadata for ctfcli.
