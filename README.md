@@ -2,7 +2,7 @@
 
 This is the setup and code for the challenges from JumpWire's Shmoocon 2023 CTF.
 
-If you'd like to read details about the event, it's detailed [here](https://jumpwire.io/blog/how-to-run-a-ctf)
+If you'd like to read more about the event, it's detailed [here](https://jumpwire.io/blog/how-to-run-a-ctf)
 
 ## Structure
 
